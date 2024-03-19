@@ -1,24 +1,26 @@
-import { auth } from "./init_firebase.js";
-import { signInWithEmailAndPassword} from "firebase/auth";
+import {auth, sign_in_with_email_and_password} from "./init_firebase.js";
 
 //Login
-const USER_UID = "";
+let USER_UID = "";
+
+//Login button
+const login_btn = document.getElementById('login_btn');
+login_btn.addEventListener('click', login);
 
 //Function
 function login(){
-    //
+    //Get user_values
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    signInWithEmailAndPassword(auth, email, password)
+    sign_in_with_email_and_password(auth, email, password)
     .then((userCredential) => {
         // Login success
         USER_UID = userCredential.user;
+        console.log("Connected !");
     })
     .catch((error) => {
         // Login error
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Erreur de connexion:", errorCode, errorMessage);
+        console.log("Bad password or email !");
     });
 }
