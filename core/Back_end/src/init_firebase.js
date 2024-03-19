@@ -1,8 +1,8 @@
 //Import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-//Init Firebase
 
+//Init Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDFx7Zr5_HngM5FuilwtkHMbB2uyYgDcTA",
     authDomain: "bid-wine-spirits.firebaseapp.com",

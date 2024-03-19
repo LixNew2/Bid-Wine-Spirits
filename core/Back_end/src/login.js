@@ -1,7 +1,5 @@
 import {auth, sign_in_with_email_and_password} from "./init_firebase.js";
-
-//Login
-let USER_UID = "";
+import {set_user_uid, USER_UID} from "./global.js";
 
 //Login button
 const login_btn = document.getElementById('login_btn');
@@ -16,11 +14,13 @@ function login(){
     sign_in_with_email_and_password(auth, email, password)
     .then((userCredential) => {
         // Login success
-        USER_UID = userCredential.user;
+        set_user_uid(userCredential.user.reloadUserInfo.localId);
         console.log("Connected !");
+        console.log(USER_UID); 
     })
     .catch((error) => {
         // Login error
+        console.log(error);
         console.log("Bad password or email !");
     });
 }
