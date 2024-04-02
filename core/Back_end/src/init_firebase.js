@@ -1,6 +1,7 @@
 //Import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, getDatabase} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
 
 //Init Firebase
 const firebaseConfig = {
@@ -18,3 +19,5 @@ export const auth = getAuth(app);
 export const sign_in_with_email_and_password = signInWithEmailAndPassword;
 export const create_user_with_email_and_password = createUserWithEmailAndPassword;
 export const db = getDatabase(app);
+export const ref = ref;
+export const set = set;
