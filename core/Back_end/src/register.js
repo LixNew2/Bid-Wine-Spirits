@@ -45,6 +45,7 @@ function create_account(){
         //Set user_values
         console.log(typeof("/users/"+localId))
         set('users/'+localId, data);
+        document.location.href = "./login.html";
     })
     .catch((error) => {
         const errorMessage = error.message;
