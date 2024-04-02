@@ -32,18 +32,19 @@ function create_account(){
 
         //Create user_values
         var localId = userCredential.user.reloadUserInfo.localId;
-        var token = userCredential.user.refreshToken;
-        var data = {localId:{
+        var data = {
             "nom":nom,
             "prenom":prenom,
+            "username":nom+" "+prenom,
             "rue":rue,
             "ville":ville,
             "codePostal":codePostal,
             "tel":tel
-        }};
+        };
         
         //Set user_values
-        set(data, "users/uid", localId);
+        console.log(typeof("/users/"+localId))
+        set('users/'+localId, data);
     })
     .catch((error) => {
         const errorMessage = error.message;

@@ -1,59 +1,13 @@
-import { db } from "./global.js";
+import {db, reference, setter} from "./init_firebase.js";
 
-function read(ref) {
-    if (token == "") {
-        return "error";
-    }
-
-    try {
-        data = db.ref(ref).get();
-    } catch {
-        return "error";
-    }
-
-    return data;
+function set(path, data){
+    setter(reference(db, path), data)
+    .then(() => {
+        console.log("ok")
+    })
+    .catch((error) => {
+        console.log(error)
+    });
 }
 
-function set(data, ref) {
-    if (token == "") {
-        return "error";
-    }
-
-    try {
-        db.ref(ref).set(data);
-    } catch {
-        return "error";
-    }
-
-    return "success";
-}
-
-function update(data, ref) {
-    if (token == "") {
-        return "error";
-    }
-
-    try {
-        db.ref(ref).update(data);
-    } catch {
-        return "error";
-    }
-
-    return "success";
-}
-
-function delete_att(ref) {
-    if (token == "") {
-        return "error";
-    }
-
-    try {
-        db.ref(ref).delete();
-    } catch {
-        return "error";
-    }
-
-    return "success";
-}
-
-export { read, set, update, delete_att };
+export { set  };
