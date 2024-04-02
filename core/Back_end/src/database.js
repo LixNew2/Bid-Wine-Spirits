@@ -82,3 +82,5 @@ function delete_att(ref, token) {
 
     return "success";
 }
+
+export { read, set, update, delete_att };
