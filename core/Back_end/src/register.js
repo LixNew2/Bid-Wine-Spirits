@@ -1,6 +1,6 @@
+//Imports
 import {auth,create_user_with_email_and_password} from "./init_firebase.js";
 import {set} from "./database.js";
-
 
 //Create account button
 const create = document.getElementById('btn_valider');
@@ -8,7 +8,7 @@ create.addEventListener('click', create_account);
 
 //Function
 function create_account(){
-    //Get user_values
+    //Get user values
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmerPassword = document.getElementById("confirmer_password").value;
@@ -19,6 +19,7 @@ function create_account(){
     const codePostal = document.getElementById("code_postal").value;
     const tel = document.getElementById("numero_de_tel").value;
     
+    //Check if passwords match
     if(password !== confirmerPassword) {
         alert("Les mots de passe ne correspondent pas.");
         return;
@@ -30,7 +31,7 @@ function create_account(){
         // Signed up 
         console.log("Compte créé !");
 
-        //Create user_values
+        //Create user data
         var localId = userCredential.user.reloadUserInfo.localId;
         var data = {
             "nom":nom,
@@ -42,14 +43,15 @@ function create_account(){
             "tel":tel
         };
         
-        //Set user_values
-        console.log(typeof("/users/"+localId))
+        //Set user data
         set('users/'+localId, data);
+
+        //Redirect to login page
         document.location.href = "./login.html";
+        
     })
     .catch((error) => {
-        const errorMessage = error.message;
-        console.log("Erreur lors de la création du compte:", errorMessage);
+        console.log(error);
     });
 };
 

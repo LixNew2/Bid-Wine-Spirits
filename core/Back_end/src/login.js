@@ -1,5 +1,6 @@
+// Imports
 import {auth, sign_in_with_email_and_password} from "./init_firebase.js";
-import {set_user_uid, USER_UID, set_username} from "./global.js";
+import {read} from "./database.js";
 
 //Login button
 const login_btn = document.getElementById('login_btn');
@@ -7,19 +8,32 @@ login_btn.addEventListener('click', login);
 
 //Function
 function login(){
-    //Get user_values
+    //Get user values
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-
+    
     sign_in_with_email_and_password(auth, email, password)
     .then((userCredential) => {
+        
         // Login success
-        set_user_uid(userCredential.user.reloadUserInfo.localId);
-        console.log(userCredential)
+        document.cookie = "uid="+userCredential.user.reloadUserInfo.localId;
+        read('users/'+userCredential.user.reloadUserInfo.localId)
+        .then((data) => {
+
+            //Get username success
+
+            //Set username in cookie
+            document.cookie = "username="+data.username;
+
+            //Redirect to login page
+            document.location.href = "./interfaceclient.html";
+        }) .catch((error) => {
+            //Get username error
+            console.log(error);
+        });
     })
     .catch((error) => {
         // Login error
         console.log(error);
-        console.log("Bad password or email !");
-    });
+    }); 
 }
