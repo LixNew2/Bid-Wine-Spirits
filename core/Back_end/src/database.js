@@ -1,23 +1,8 @@
 import { db } from "./global.js";
 
-function get_uid(token) {
-    var data = "";
-    try {
-        data = auth.verify_id_token(token)['uid'];
-    } catch {
-        return "error";
-    }
-    return data;
-}
-
-function read(ref, token) {
+function read(ref) {
     if (token == "") {
         return "error";
-    }
-    
-    var data = "";
-    if ("uid" in ref) {
-        ref = ref.replace("uid", get_uid(token));
     }
 
     try {
@@ -29,13 +14,9 @@ function read(ref, token) {
     return data;
 }
 
-function set(data, ref, token) {
+function set(data, ref) {
     if (token == "") {
         return "error";
-    }
-
-    if ("uid" in ref) {
-        ref = ref.replace("uid", get_uid(token));
     }
 
     try {
@@ -47,13 +28,9 @@ function set(data, ref, token) {
     return "success";
 }
 
-function update(data, ref, token) {
+function update(data, ref) {
     if (token == "") {
         return "error";
-    }
-
-    if ("uid" in ref) {
-        ref = ref.replace("uid", get_uid(token));
     }
 
     try {
@@ -65,13 +42,9 @@ function update(data, ref, token) {
     return "success";
 }
 
-function delete_att(ref, token) {
+function delete_att(ref) {
     if (token == "") {
         return "error";
-    }
-
-    if ("uid" in ref) {
-        ref = ref.replace("uid", get_uid(token));
     }
 
     try {

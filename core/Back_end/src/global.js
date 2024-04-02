@@ -1,12 +1,18 @@
 let USER_UID = "";
 let USERNAME = "";
+let TOKEN = "";
 
 function set_user_uid(uid){
     USER_UID = uid;
 }
 
 function set_username(username){
-    USER_UID = username;
+    USERNAME = username;
 }
 
-export { set_user_uid , set_username, USER_UID, USERNAME};
+function set_token(token){
+    TOKEN = token;
+}
+
+
+export { set_user_uid , set_username, set_token, USER_UID, USERNAME, TOKEN};
