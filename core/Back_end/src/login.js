@@ -17,6 +17,8 @@ function login(){
         set_user_uid(userCredential.user.reloadUserInfo.localId);
         console.log("Connected !");
         console.log(USER_UID); 
+
+        
     })
     .catch((error) => {
         // Login error
