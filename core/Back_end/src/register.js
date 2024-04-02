@@ -13,8 +13,6 @@ function create_account(){
         alert("Les mots de passe ne correspondent pas.");
         return;
     }
-    console.log(email)
-    console.log(password)
 
     create_user_with_email_and_password(auth, email, password)
     .then((userCredential) => {
@@ -24,7 +22,6 @@ function create_account(){
         console.log("Compte créé !");
     })
     .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log("Erreur lors de la création du compte:", errorMessage);
     });
