@@ -5,6 +5,7 @@
     <title>depos</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../styles/depos.css">
+        <script type="module" src="../../../Back_end/src/depot.js"></script>
 </head>
 
 <body>
@@ -16,26 +17,26 @@
         <header>
             <div class="header">
                 <!-- Section en-tête du formulaire -->
-                <input type="text" placeholder="Titre de l'annonce..." class="titre-annonce">
+                <input type="text" placeholder="Titre de l'annonce..." id="titre-annonce">
                 <!-- Champ de texte pour entrer le titre de l'annonce -->
 
 
                 <div class="details-annonce">
                     <!-- Conteneur pour les détails supplémentaires de l'annonce -->
-                    <select name="type" class="type-select">
+                    <select name="type" id="type-select">
                         <!-- Menu déroulant pour sélectionner le type d'annonce -->
                         <option value="">Type</option>
-                        <option value="">vin</option>
-                        <option value="">spiritueux</option>
+                        <option value="vin">vin</option>
+                        <option value="spiritueux">spiritueux</option>
                     </select>
 
 
-                    <select name="etat" class="etat-select">
+                    <select name="etat" id="etat-select">
                         <!-- Menu déroulant pour sélectionner l'état du produit -->
                         <option value="">État</option>
                         <option value=""></option>
                     </select>
-                    <input type="text" placeholder="Prix" class="prix-input">
+                    <input type="text" placeholder="Prix" id="prix-input">
                     <!-- Champ de texte pour entrer le prix du produit -->
                 </div>
             </div>
@@ -45,7 +46,7 @@
     <main>
         <div class="photo-section">
             <!-- Section pour l'ajout de photo(s) du produit -->
-            <input type="file">
+            <input type="file" id="file">
             <!-- Bouton pour ajouter des fichiers, typiquement des photos -->
             <div class="lieu-livraison">
                 <!-- Conteneur pour les informations de localisation et de livraison -->
@@ -65,24 +66,24 @@
                     <!-- Checkbox pour choisir l'option de livraison -->
                 </div>
             </div>
-            <textarea placeholder="Description du produit..." class="description-produit"></textarea>
+            <textarea placeholder="Description du produit..." id="description-produit"></textarea>
             <!-- Zone de texte pour la description détaillée du produit -->
         </div>
 
         <div class="contact-section">
             <!-- Section pour entrer les informations de contact -->
-            <input type="text" placeholder="Vos coordonnées..." class="contact-input">
+            <input type="text" placeholder="Vos coordonnées..." id="contact-input">
             <!-- Champ de texte pour les coordonnées de contact -->
         </div>
-        <div class="submit">
+        <div id="submit">
             <button>confirmer le dépot</button>
         </div>
-        <select name="country" class="country">
+        <select name="country" id="country">
             <option value="">Pays</option>
         </select>
-        <input type="text" placeholder="Ville">
-        <input type="text" placeholder="Code Postal">
-        <input type="text" placeholder="Date de fin (AAAA-MM-JJ)">
+        <input type="text" placeholder="Ville" id="ville">
+        <input type="text" placeholder="Code Postal" id="cp">
+        <input type="text" placeholder="Date de fin (AAAA-MM-JJ)" id="end-date">
     </main>
 
     <footer>

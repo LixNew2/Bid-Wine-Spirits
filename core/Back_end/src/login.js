@@ -16,14 +16,13 @@ function login(){
     .then((userCredential) => {
         
         // Login success
-        document.cookie = "uid="+userCredential.user.reloadUserInfo.localId;
+        localStorage.setItem("uid", userCredential.user.reloadUserInfo.localId);
         read('users/'+userCredential.user.reloadUserInfo.localId)
         .then((data) => {
 
             //Get username success
-
-            //Set username in cookie
-            document.cookie = "username="+data.username;
+            //Set username in local storage
+            localStorage.setItem('username', data.username);
 
             //Redirect to login page
             document.location.href = "./interfaceclient.html";
