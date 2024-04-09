@@ -49,7 +49,7 @@
     <main>
         <div class="photo-section">
             <!-- Section pour l'ajout de photo(s) du produit -->
-            <input type="file" id="file">
+            <input type="file" id="file" accept=".jpg, .jpeg, .png" >
             <!-- Bouton pour ajouter des fichiers, typiquement des photos -->
             <div class="lieu-livraison">
                 <!-- Conteneur pour les informations de localisation et de livraison -->
@@ -81,12 +81,21 @@
         <div id="submit">
             <button>confirmer le dépot</button>
         </div>
+
+        <div id="info_client">
         <select name="country" id="country">
             <option value="">Pays</option>
         </select>
         <input type="text" placeholder="Ville" id="ville">
         <input type="text" placeholder="Code Postal" id="cp">
-        <input type="date" placeholder="Date de fin (JJ-MM-AAAA)" id="end-date">
+    </div>
+
+    <div id="end-date">Date de fermeture de l'enchère</div>
+
+    <div id="calendar">
+    <input type="date" placeholder="Date de fin (JJ-MM-AAAA)" id="end-date">
+    </div>
+    
     </main>
 
     <footer>

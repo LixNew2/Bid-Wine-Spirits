@@ -2,7 +2,7 @@
 
   body, html {
     height: 10%;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     font-family: Arial, sans-serif; /* La police par défaut est Arial. */
     
@@ -59,9 +59,21 @@
     margin-left: 10px;
   }
 
+  #photo{
+    position: absolute;
+    top: 15%;
+    margin-bottom: 20px;
+  }
+
   /* Section pour la localisation et les options de livraison. */
   .lieu{
+    position: absolute;
+    top: 23%;
+  }
 
+  #info_client{
+    position: absolute;
+    top: 30%;
   }
   .livraison {
     position: absolute;
@@ -72,12 +84,19 @@
   }
   
   /* Champ pour la description du produit. */
-  .description-produit {
+  #description-produit {
     position: absolute;
     top: 50%;
     width: 99%; /* Prend toute la largeur disponible. */
     height: 100px; /* Hauteur fixe pour la zone de texte. */
     left: 0;
+  }
+
+  #calendar{
+    position: absolute;
+    left: 0;
+    top: 70%;
+    margin: 20px;
   }
   
   /* Section pour entrer les coordonnées de contact. */
@@ -86,14 +105,19 @@
   }
   
   /* Champ pour entrer les coordonnées de contact. */
-  .contact-input {
+  #contact-input {
     width: 99%; /* Prend toute la largeur disponible. */
     height: 5%;
     top: 40%;
     position: absolute;
   }
 
-  .submit{
+  #end-date{
+    position: absolute;
+    top: 66%;
+  }
+
+  #submit{
     position: absolute;
     width: 20%;
     height: 9%;
