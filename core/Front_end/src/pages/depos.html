@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>depos</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/depos.css">
+</head>
+
+<body>
+
+  <img class="img_fond" 
+
+    <div class="container">
+        <!-- Div principal agissant comme un conteneur pour centrer et contenir le contenu de la page -->
+
+        <div class="header">
+            <!-- Section en-tête du formulaire -->
+            <input type="text" placeholder="Titre de l'annonce..." class="titre-annonce">
+            <!-- Champ de texte pour entrer le titre de l'annonce -->
+
+
+            <div class="details-annonce">
+                <!-- Conteneur pour les détails supplémentaires de l'annonce -->
+                 <select name="type" class="type-select">
+                    <!-- Menu déroulant pour sélectionner le type d'annonce -->
+                    <option value="">Type</option>
+                    <option value="">vin</option>
+                    <option value="">spiritueux</option>
+                </select>
+
+
+                <select name="etat" class="etat-select">
+                    <!-- Menu déroulant pour sélectionner l'état du produit -->
+                    <option value="">État</option>
+                    <option value=""></option>
+                </select>
+                <input type="text" placeholder="Prix" class="prix-input">
+                <!-- Champ de texte pour entrer le prix du produit -->
+            </div>
+        </div>
+    </div>
+        <div class="photo-section">
+            <!-- Section pour l'ajout de photo(s) du produit -->
+            <input type="file">
+            <!-- Bouton pour ajouter des fichiers, typiquement des photos -->
+            <div class="lieu-livraison">
+                <!-- Conteneur pour les informations de localisation et de livraison -->
+                <div class="lieu">
+                    <p>Où se situe votre bien ?</p>
+                    <!-- Paragraphe questionnant l'utilisateur sur la localisation de l'objet de l'annonce -->
+                    <!-- Des champs d'entrée seront probablement ajoutés ici -->
+                </div>
+                <div class="livraison">
+                    <p>Remise du bien</p>
+                    <!-- Paragraphe indiquant les options de remise du bien -->
+                    <label for="main-propre">Main propre</label>
+                    <input type="checkbox" id="main-propre">
+                    <!-- Checkbox pour choisir une remise en main propre -->
+                    <label for="livraison">Livraison</label>
+                    <input type="checkbox" id="livraison">
+                    <!-- Checkbox pour choisir l'option de livraison -->
+                </div>
+            </div>
+            <textarea placeholder="Description du produit..." class="description-produit"></textarea>
+            <!-- Zone de texte pour la description détaillée du produit -->
+        </div>
+
+        <div class="contact-section">
+            <!-- Section pour entrer les informations de contact -->
+            <input type="text" placeholder="Vos coordonnées..." class="contact-input">
+            <!-- Champ de texte pour les coordonnées de contact -->
+        </div>
+
+        <footer>
+            <!-- Pied de page de la page web -->
+            <p>Mentions légales</p>
+            <!-- Paragraphe pour les mentions légales -->
+            <!-- D'autres informations de pied de page seront probablement ajoutées ici -->
+        </footer>
+      </div>
+    </div>
+</body>
+</html>

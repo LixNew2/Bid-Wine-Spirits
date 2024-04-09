@@ -1,0 +1,97 @@
+/* Assure que les éléments s'affichent de manière cohérente dans différents navigateurs.*/
+
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* La police par défaut est Arial. */
+    
+  }
+  
+
+  .container {
+    max-width: 1200px; /* La largeur max 1200px. */
+    margin: auto; /* Centre le conteneur sur la page. */
+    padding: 20px; /* Ajoute un peu d'espace autour du contenu interne. */
+  }
+  
+
+  .header {
+    display: flex; /* Utilise flexbox pour l'alignement horizontal. */
+    justify-content: space-between; /* Répartit les enfants également horizontalement. */
+    margin-bottom: 20px; /* Ajoute un peu d'espace sous l'en-tête. */
+  }
+  
+
+  .titre-annonce {
+    flex-basis: 40%; /* Prend 40% de l'espace disponible. */
+  }
+  
+  /* Conteneur pour les détails supplémentaires de l'annonce. */
+  .details-annonce {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les éléments. */
+    flex-basis: 58%; /* Prend 58% de l'espace disponible. */
+  }
+  
+  /* Styles pour les champs de sélection et d'entrée de texte. */
+  .type-select {
+    width: 100%; /* Prend toute la largeur disponible. */
+    padding: 10px; /* Un peu d'espace à l'intérieur des champs. */
+    margin-left: 10px; /* Un peu d'espace à gauche de chaque champ. */
+  }
+  
+  .produit-select{
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+  }
+
+  .etat-select{
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+  }
+
+  .prix-input{
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+  }
+  
+  /* Section pour l'ajout de photos. */
+  .photo-section {
+    margin-bottom: 20px; /* Ajoute un peu d'espace sous cette section. */
+  }
+  
+  /* Section pour la localisation et les options de livraison. */
+  .lieu-livraison {
+    display: flex; /* Utilise flexbox ici aussi. */
+    justify-content: space-between; /* Espacement entre les options. */
+    margin-bottom: 20px; /* Ajoute un peu d'espace en dessous. */
+  }
+  
+  /* Champ pour la description du produit. */
+  .description-produit {
+    width: 100%; /* Prend toute la largeur disponible. */
+    padding: 10px; /* Un peu d'espace à l'intérieur. */
+    height: 100px; /* Hauteur fixe pour la zone de texte. */
+  }
+  
+  /* Section pour entrer les coordonnées de contact. */
+  .contact-section {
+    margin-bottom: 20px; /* Ajoute un peu d'espace en dessous. */
+  }
+  
+  /* Champ pour entrer les coordonnées de contact. */
+  .contact-input {
+    width: 100%; /* Prend toute la largeur disponible. */
+    padding: 10px; /* Un peu d'espace à l'intérieur. */
+  }
+  
+  /* Le pied de page du document. */
+  footer {
+    text-align: center; /* Centre le texte. */
+    padding: 20px; /* Ajoute un peu d'espace à l'intérieur. */
+    background-color: #c45252; /* Couleur de fond pour le pied de page. */
+  }
