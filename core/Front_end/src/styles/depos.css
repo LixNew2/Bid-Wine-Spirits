@@ -58,24 +58,23 @@
     padding: 10px;
     margin-left: 10px;
   }
-  
-  /* Section pour l'ajout de photos. */
-  .photo-section {
-    margin-bottom: 20px; /* Ajoute un peu d'espace sous cette section. */
-  }
-  
+
   /* Section pour la localisation et les options de livraison. */
   .lieu-livraison {
-    display: flex; /* Utilise flexbox ici aussi. */
+    position: absolute;
+    right: 10%; /* Utilise flexbox ici aussi. */
     justify-content: space-between; /* Espacement entre les options. */
     margin-bottom: 20px; /* Ajoute un peu d'espace en dessous. */
+    top: 25%;
   }
   
   /* Champ pour la description du produit. */
   .description-produit {
-    width: 100%; /* Prend toute la largeur disponible. */
-    padding: 10px; /* Un peu d'espace à l'intérieur. */
+    position: absolute;
+    top: 57%;
+    width: 99%; /* Prend toute la largeur disponible. */
     height: 100px; /* Hauteur fixe pour la zone de texte. */
+    left: 0;
   }
   
   /* Section pour entrer les coordonnées de contact. */
@@ -85,14 +84,26 @@
   
   /* Champ pour entrer les coordonnées de contact. */
   .contact-input {
-    width: 100%; /* Prend toute la largeur disponible. */
-    padding: 10px; /* Un peu d'espace à l'intérieur. */
+    width: 99%; /* Prend toute la largeur disponible. */
+    height: 5%;
+    top: 49%;
+    position: absolute;
+  }
+
+  .submit{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 85%;
+    left: 50%;
   }
   
   /* Le pied de page du document. */
   footer {
     text-align: center; /* Centre le texte. */
-    padding: 20px; /* Ajoute un peu d'espace à l'intérieur. */
+    width: 100%; /* Ajoute un peu d'espace à l'intérieur. */
+    height: 9%;
     background-color: #c45252; /* Couleur de fond pour le pied de page. */
-    
+    top: 89%;
+    position: absolute;
   }

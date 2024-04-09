@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>depos</title>
     <meta charset="utf-8">
@@ -8,37 +9,40 @@
 
 <body>
 
-  <img class="img_fond" >
+    <img class="img_fond">
 
     <div class="container">
         <!-- Div principal agissant comme un conteneur pour centrer et contenir le contenu de la page -->
-
-        <div class="header">
-            <!-- Section en-tête du formulaire -->
-            <input type="text" placeholder="Titre de l'annonce..." class="titre-annonce">
-            <!-- Champ de texte pour entrer le titre de l'annonce -->
-
-
-            <div class="details-annonce">
-                <!-- Conteneur pour les détails supplémentaires de l'annonce -->
-                 <select name="type" class="type-select">
-                    <!-- Menu déroulant pour sélectionner le type d'annonce -->
-                    <option value="">Type</option>
-                    <option value="">vin</option>
-                    <option value="">spiritueux</option>
-                </select>
+        <header>
+            <div class="header">
+                <!-- Section en-tête du formulaire -->
+                <input type="text" placeholder="Titre de l'annonce..." class="titre-annonce">
+                <!-- Champ de texte pour entrer le titre de l'annonce -->
 
 
-                <select name="etat" class="etat-select">
-                    <!-- Menu déroulant pour sélectionner l'état du produit -->
-                    <option value="">État</option>
-                    <option value=""></option>
-                </select>
-                <input type="text" placeholder="Prix" class="prix-input">
-                <!-- Champ de texte pour entrer le prix du produit -->
+                <div class="details-annonce">
+                    <!-- Conteneur pour les détails supplémentaires de l'annonce -->
+                    <select name="type" class="type-select">
+                        <!-- Menu déroulant pour sélectionner le type d'annonce -->
+                        <option value="">Type</option>
+                        <option value="">vin</option>
+                        <option value="">spiritueux</option>
+                    </select>
+
+
+                    <select name="etat" class="etat-select">
+                        <!-- Menu déroulant pour sélectionner l'état du produit -->
+                        <option value="">État</option>
+                        <option value=""></option>
+                    </select>
+                    <input type="text" placeholder="Prix" class="prix-input">
+                    <!-- Champ de texte pour entrer le prix du produit -->
+                </div>
             </div>
-        </div>
+        </header>
+
     </div>
+    <main>
         <div class="photo-section">
             <!-- Section pour l'ajout de photo(s) du produit -->
             <input type="file">
@@ -73,14 +77,22 @@
         <div class="submit">
             <button>confirmer le dépot</button>
         </div>
+        <select name="country" class="country">
+            <option value="">Pays</option>
+        </select>
+        <input type="text" placeholder="Ville">
+        <input type="text" placeholder="Code Postal">
+        <input type="text" placeholder="Date de fin (AAAA-MM-JJ)">
+    </main>
 
-        <footer>
-            <!-- Pied de page de la page web -->
-            <p>Mentions légales</p>
-            <!-- Paragraphe pour les mentions légales -->
-            <!-- D'autres informations de pied de page seront probablement ajoutées ici -->
-        </footer>
-      </div>
+    <footer>
+        <!-- Pied de page de la page web -->
+        <p>Mentions légales</p>
+        <!-- Paragraphe pour les mentions légales -->
+        <!-- D'autres informations de pied de page seront probablement ajoutées ici -->
+    </footer>
+    </div>
     </div>
 </body>
+
 </html>
