@@ -1,5 +1,5 @@
 //Imports
-import {db, reference, setter, getter, db_ref, children} from "./init_firebase.js";
+import {db, reference, setter, getter, db_ref, children, updater} from "./init_firebase.js";
 
 //Function
 //Set data in database
@@ -18,5 +18,9 @@ function read(path){
     });
 }
 
+function update(path, data){
+    updater(reference(db, path), data)
+}
+
 //Export
-export { set, read };
+export { set, read, update };

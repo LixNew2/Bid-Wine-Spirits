@@ -1,5 +1,6 @@
-//Import
-import {set} from "./database.js";
+// Imports
+import {set, update} from "./database.js";
+import {set as setImg} from "./storage.js";
 
 const countries = [
     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria",
@@ -27,15 +28,24 @@ const title = document.getElementById('titre-annonce');
 const type = document.getElementById('type-select');
 const condition = document.getElementById('etat-select');
 const price = document.getElementById('prix-input');
+
+var file_path_value = null;
 const file_path = document.getElementById('file');
+file_path.addEventListener('change', (event) => {
+    file_path_value = event.target.files[0]; 
+  });
+
 const country = document.getElementById('country');
 const place = document.getElementById('ville');
 const cp = document.getElementById('cp');
-const end_date= document.getElementById('end-date');
+const end_date = document.getElementById('end-date');
 const hand_delivered = document.getElementById('main-propre');
 const delivery = document.getElementById('livraison');
 const description = document.getElementById('description-produit');
 const contact = document.getElementById('contact-input');
+const year = document.getElementById('year');
+const brand = document.getElementById('brand');
+
 const submit = document.getElementById('submit');
 
 hand_delivered.addEventListener('click', function(){
@@ -60,37 +70,69 @@ function create_bid(){
     const type_value = type.value;
     const condition_value = condition.value;
     const price_value = price.value;
-    const file_path_value = file_path.value;
     const country_value = country.value;
     const place_value = place.value;
     const cp_value = cp.value;
-    const end_date_value = end_date.value;
     const hand_delivered_value = hand_delivered.checked;
     const delivery_value = delivery.checked
     const description_value = description.value;
     const contact_value = contact.value;
+    const year_value = year.value;
+    const brand_value = brand.value;
+    const uuid4 = generate_uuid_v4();
 
-    const data = {
-        "title": title_value,
-        "type": type_value,
-        "condition": condition_value,
-        "price": price_value,
-        "file_path": file_path_value,
-        "country": country_value,
-        "place": place_value,
-        "cp": cp_value,
-        "end_date": end_date_value,
-        "hand_delivered": hand_delivered_value,
-        "delivery": delivery_value,
-        "description": description_value,
-        "contact": contact_value,
-        "creator": localStorage.getItem('uid'),
-        "timestamp_creation": new Date().getTime(),
-        "timestamp_end_date": new Date(end_date_value).getTime(),
-        "bidders": [],
-        "status": "open",
-        "winner": "null",
+    setImg(file_path_value, "/imgs/"+uuid4+"/img.png")
+    .then((downloadURL) => {
+        //Get username success
+        //Set username in local storage
+        const data = {
+            "title": title_value,
+            "type": type_value,
+            "condition": condition_value,
+            "price": parseFloat(price_value),
+            "img_URL": downloadURL,
+            "country": country_value,
+            "place": place_value,
+            "cp": parseInt(cp_value),
+            "end_date": end_date.value,
+            "hand_delivered": hand_delivered_value,
+            "delivery": delivery_value,
+            "description": description_value,
+            "contact": contact_value,
+            "creator": localStorage.getItem('uid'),
+            "timestamp_creation": String(new Date().getTime()),
+            "timestamp_end_date": String(new Date(end_date.value).getTime()),
+            "bidder": "null",
+            "bid_price": 0,
+            "status": "open",
+            "winner": "null",
+            "year": parseInt(year_value),
+            "brand": brand_value
+        };
+    
+        set('/bids/'+uuid4, data); 
+        update('/users/'+localStorage.getItem('uid')+"/created_bids/", {[uuid4]:"owner"}); 
+    }) .catch((error) => {
+        //Get username error
+        console.log(error);
+    });
+}
 
-    };
-    console.log(data);
+function generate_uuid_v4() {
+    var uuid = "";
+    var characters = "0123456789abcdef";
+    
+    for (var i = 0; i < 32; i++) {
+        var random_int = Math.floor(Math.random() * characters.length);
+        var random_string = characters.charAt(random_int);
+
+        if (i === 12) {
+            random_string = "4";
+        }
+        uuid += random_string;
+    }
+    
+    uuid = uuid.substring(0, 8) + "-" + uuid.substring(8, 12) + "-" + uuid.substring(12, 16) + "-" + uuid.substring(16, 20) + "-" + uuid.substring(20);
+    
+    return uuid;
 }

@@ -40,7 +40,9 @@ function create_account(){
             "rue":rue,
             "ville":ville,
             "codePostal":codePostal,
-            "tel":tel
+            "tel":tel,
+            "created_bids":{"null":"null"},
+            "bidding":{"null":"null"}
         };
         
         //Set user data

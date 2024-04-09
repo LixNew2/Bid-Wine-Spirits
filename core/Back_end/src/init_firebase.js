@@ -1,7 +1,8 @@
 //Import
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-import { getDatabase, ref, set, get, child} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+import { getDatabase, ref, set, get, child, update} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
 
 //Firebase creadentials
 const firebaseConfig = {
@@ -27,3 +28,8 @@ export const setter = set;
 export const getter = get;
 export const db_ref = ref(db);
 export const children = child;
+export const updater = update;
+export const storage = getStorage();
+export const storage_ref = sRef;
+export const upload = uploadBytes;
+export const download = getDownloadURL;
