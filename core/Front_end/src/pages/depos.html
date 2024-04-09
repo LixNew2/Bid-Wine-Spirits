@@ -5,7 +5,7 @@
     <title>depos</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../styles/depos.css">
-        <script type="module" src="../../../Back_end/src/depot.js"></script>
+    <script type="module" src="../../../Back_end/src/depot.js"></script>
 </head>
 
 <body>
@@ -25,7 +25,6 @@
                     <!-- Conteneur pour les détails supplémentaires de l'annonce -->
                     <select name="type" id="type-select">
                         <!-- Menu déroulant pour sélectionner le type d'annonce -->
-                        <option value="">Type</option>
                         <option value="vin">vin</option>
                         <option value="spiritueux">spiritueux</option>
                     </select>
@@ -33,9 +32,13 @@
 
                     <select name="etat" id="etat-select">
                         <!-- Menu déroulant pour sélectionner l'état du produit -->
-                        <option value="">État</option>
-                        <option value=""></option>
+                        <option value="Neuf">Neuf</option>
+                        <option value="Abîmer">Abîmer</option>
+                        <option value="Très abîmer">Très abîmer</option>
                     </select>
+
+                    <input type="text" placeholder="Date (JJ-MM-AAAA)" id="date">
+                    <input type="text" placeholder="Marque" id="brand">
                     <input type="text" placeholder="Prix" id="prix-input">
                     <!-- Champ de texte pour entrer le prix du produit -->
                 </div>
@@ -83,7 +86,7 @@
         </select>
         <input type="text" placeholder="Ville" id="ville">
         <input type="text" placeholder="Code Postal" id="cp">
-        <input type="text" placeholder="Date de fin (AAAA-MM-JJ)" id="end-date">
+        <input type="text" placeholder="Date de fin (JJ-MM-AAAA)" id="end-date">
     </main>
 
     <footer>
