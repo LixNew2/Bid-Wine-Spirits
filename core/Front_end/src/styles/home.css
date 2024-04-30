@@ -1,86 +1,71 @@
-body, html{
-    height:100%;
-    margin:0;
-    padding:0;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Empêche le défilement au niveau du body */
 }
 
-.barre-navigation{
-    display: flex;
-    justify-content: space-between;
+header {
+    background-color: #7B2D26;
+    height: 6vh; /* Fixe la hauteur de l'en-tête en unités de vh pour une précision accrue */
     align-items: center;
-    /*padding: 0;*/
-    background-color: #9b4d4d;
-    
-}
-
-.barre-navigation img{
-    width:7%;
-    height: auto;
-}
-
-.barre-navigation nav{
-    display:flex;
-    align-items: center;
-}
-
-.barre-navigation nav a{
-    text-decoration: none;
-    color: white;
-    padding: 0 1rem;
-    display: flex;
-    align-items:center;
-}
-
-.photoBase{
-    position: relative;
     text-align: center;
+    display: flex;
+}
+
+.logo{
+    object-fit: contain;
+    height: 100%;
+}
+.barnav{
+    display: flex;
+    justify-content:left;
     width: 100%;
+    padding-left: 20px;
+    text-decoration: none;
 }
 
-/*
-.photoBase img{
-    top : 5.5%;
-    margin: 0.5%;
-    width: 100%; 
-    height: 94.5%;
-    position: relative; 
-}
-*/
-.barreBase img{
-    width:100%;
-    height: auto;
+.barnav > *:not(:last-child) {
+    margin-right: 20px; /* ou la valeur d'espacement que vous préférez */
 }
 
-/*
-.barre-bas{
-    right:0;
-    left:0;
-    width: auto;
-    background-color: #9b4d4d;
-    text-align: center;
-    bottom:0;
-    padding:5px;
-}
-*/
-
-.barre-bas{
-    background-color: #9b4d4d;
-    color:white;
-    text-align: center;
-    padding: 5 px;
-    position: relative;
+.photoBase img {
+    width: 100%;
+    height: calc(100vh - 5vh - 7vh); /* Ajuste la hauteur en vh également */
+    object-fit: cover;
+    display: block;
 }
 
-.barre-bas p{
-    margin: 0.5rem 0;
+footer {
+    background-color: #5d0606; /* Noir pour le fond du footer */
+    color: #ffffff; /* Blanc pour le texte */
+    display: flex;
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    padding: 1rem; /* Ajustez selon votre design */
+    font-size: 1rem; /* Ajustez la taille du texte */
 }
 
-@media (max-width: 768px){
-    .barre-navigation img{
-        width: 10%;
-    }
+.footer-links {
+    display: flex;
+    justify-content: center; /* Centre les liens horizontalement */
+    flex-wrap: wrap; /* Les liens vont à la ligne si nécessaire */
+}
 
-    .barre-navigation nav a{
-        padding: 0.5rem;
-    }
+.footer-links a {
+    color: #ffffff; /* Blanc pour les liens */
+    margin: 0 10px; /* Espace horizontalement entre les liens */
+    text-decoration: none; /* Aucun soulignement sur les liens */
+    padding: 5px 0; /* Ajustez pour le padding vertical si nécessaire */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Souligne les liens au survol */
+}
+
+/* Style pour le texte de copyright */
+footer p {
+    text-align: center; /* Centre le texte */
+    width: 100%; /* S'assure que le texte est centré dans toute la largeur */
+    margin: 0; /* Aucune marge pour ce paragraphe */
 }

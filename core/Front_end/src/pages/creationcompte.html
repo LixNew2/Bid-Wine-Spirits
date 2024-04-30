@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <script type="module" src="../../../Back_end/src/register.js"></script>
-        <title>Login</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <div id="creationcompteform">
-            <h1>Page création de compte</h1>
-            <p>Prénom</p>
-            <input type="text" id="prenom">
-            <p>Nom</p>
-            <input type="text" id="nom">
-            <p>Adresse</p>
-            <input type="text" id="rue">
-            <p>Ville</p>
-            <input type="text" id="ville">
-            <p>Departement</p>
-            <input type="text" id="departement">
-            <p>Code Postal</p>
-            <input type="text" id="code_postal">
-            <p>Numéro de téléphone</p>
-            <input type="text" id="numero_de_tel">
-            <p>Email</p>
-            <input type="text" id="email">
-            <p>Password</p>
-            <input type="text" id="password">
-            <p>Confirmer Password</p>
-            <input type="text" id="confirmer_password"><br><br>
-            <button id="btn_valider">Valider</button>
+<head>
+    <title>Création de compte</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles/creationcompte.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Bid Wine Spirit</p>
         </div>
+<<<<<<< Updated upstream
     </body>
+=======
+        <form class="form">
+            <div>
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" placeholder="Entrez votre prénom">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" placeholder="Entrez votre nom">
+                <label for="rue">Adresse:</label>
+                <input type="text" id="rue" placeholder="Entrez votre adresse">
+                <label for="ville">Ville:</label>
+                <input type="text" id="ville" placeholder="Entrez votre ville">
+                <label for="departement">Département:</label>
+                <input type="text" id="departement" placeholder="Entrez votre département">
+            </div>
+            <div>
+                <label for="code_postal">Code Postal:</label>
+                <input type="text" id="code_postal" placeholder="Entrez votre code postal">
+                <label for="numero_de_tel">Numéro de téléphone:</label>
+                <input type="text" id="numero_de_tel" placeholder="Entrez votre numéro de téléphone">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="Entrez votre email">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Entrez votre mot de passe">
+                <label for="confirmer_password">Confirmer Password:</label>
+                <input type="password" id="confirmer_password" placeholder="Confirmez votre mot de passe">
+            </div>
+            <button type="submit" id="btn_valider">Valider</button>
+        </form>
+        <div class="footer">
+            <a href="./Home.html"><button>Retour</button></a>
+        </div>
+    </div>
+</body>
+>>>>>>> Stashed changes
 </html>
