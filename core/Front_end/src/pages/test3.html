@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Dépôt d'enchères</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./test3.css">
+    <script type="module" src="../../../Back_end/src/depot.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+
+            <input type="text" placeholder="Titre de l'annonce..." id="titre-annonce">
+            
+            <div class="details-annonce">
+                <select name="type" id="type-select">
+                    <option value="vin">Vin</option>
+                    <option value="spiritueux">Spiritueux</option>
+                </select>
+                <select name="etat" id="etat-select">
+                    <option value="Neuf">Neuf</option>
+                    <option value="Abîmé">Abîmé</option>
+                    <option value="Très abîmé">Très abîmé</option>
+                </select>
+                <input type="text" placeholder="Année" id="year">
+                <input type="text" placeholder="Marque" id="brand">
+                <input type="text" placeholder="Prix" id="prix-input">
+            
+            </div>
+        </div>
+
+        <main>
+            
+            <div class="photo-section">
+                <input type="file" id="file" accept=".jpg, .jpeg, .png">
+            </div>
+            <textarea placeholder="Description du produit..." id="description-produit"></textarea>
+
+            <div class="contact-section">
+                <input type="text" placeholder="Vos coordonnées..." id="contact-input">
+                <input type="text" placeholder="Ville" id="ville">
+                <input type="text" placeholder="Code Postal" id="cp">
+                <select name="country" id="country">
+                    <option value="">Pays</option>
+                </select>
+                <div class="date-close">
+                    <input type="date" placeholder="Date de fin (JJ-MM-AAAA)" id="end-date">
+                </div>
+                <div class="submit">
+                    <button type="submit">Confirmer le dépôt</button>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>Mentions légales</p>
+        </footer>
+    </div>
+</body>
+</html>
