@@ -102,7 +102,7 @@ function create_bid(){
             "timestamp_creation": String(new Date().getTime()),
             "timestamp_end_date": String(new Date(end_date.value).getTime()),
             "bidder": "null",
-            "bid_price": 0,
+            "bid_price": parseFloat(price_value),
             "status": "open",
             "winner": "null",
             "year": parseInt(year_value),
