@@ -1,5 +1,5 @@
 // Imports
-import {auth, sign_in_with_email_and_password} from "./init_firebase.js";
+import {auth, sign_in_with_email_and_password, send_password_reset_email} from "./init_firebase.js";
 import {read} from "./database.js";
 
 //Login button
@@ -8,7 +8,22 @@ login_btn.addEventListener('click', login);
 
 //Forgot password button
 const forgot_password_btn = document.getElementById('forgot_password_btn');
+forgot_password_btn.addEventListener('click', forgot_password);
 
+function forgot_password(){
+    const email = document.getElementById('email').value;
+    send_password_reset_email(auth, email)
+    .then(() => {
+        // Email sent
+        console.log('Email sent');
+        alert('Email sent');
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+    });
+}
 //Function
 function login(){
     //Get user values
