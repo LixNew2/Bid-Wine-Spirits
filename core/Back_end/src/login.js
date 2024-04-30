@@ -6,6 +6,9 @@ import {read} from "./database.js";
 const login_btn = document.getElementById('login_btn');
 login_btn.addEventListener('click', login);
 
+//Forgot password button
+const forgot_password_btn = document.getElementById('forgot_password_btn');
+
 //Function
 function login(){
     //Get user values
