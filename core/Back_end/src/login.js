@@ -24,8 +24,8 @@ function login(){
             //Set username in local storage
             localStorage.setItem('username', data.username);
 
-            //Redirect to login page
-            document.location.href = "./interfaceclient.html";
+            //Redirect to acceuil page
+            document.location.href = "./accueil.html";
         }) .catch((error) => {
             //Get username error
             console.log(error);
