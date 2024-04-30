@@ -111,6 +111,8 @@ function create_bid(){
     
         set('/bids/'+uuid4, data); 
         update('/users/'+localStorage.getItem('uid')+"/created_bids/", {[uuid4]:"owner"}); 
+        //Redirect to acceuil page
+        document.location.href = "./accueil.html";
     }) .catch((error) => {
         //Get username error
         console.log(error);

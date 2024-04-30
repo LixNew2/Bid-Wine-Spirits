@@ -40,6 +40,13 @@ nav button:hover {
   padding: 20px;
 }
 
+#history {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
 .auction_item {
   width: 100%;
   margin-bottom: 20px;
