@@ -1,4 +1,4 @@
-import {read} from "./database.js";
+import {read, set} from "./database.js";
 
 //Get username in document
 const username = document.getElementById('username');
@@ -21,17 +21,21 @@ var my_gallery = document.getElementById('my_gallery');
 var history = document.getElementById('history');
 
 function get_bid(path, type){
-    var price = 0 
     read(path)
     .then((data) => {
+        let price = 0;
         
         for(var key in data){
             if(key != "null"){
+                let currentKey = key;
+                
                 if(type == 0){
                     price = data[key];
                 }
+
                 read('bids/'+key)
                 .then((data) => {
+
                     var article = document.createElement('article');
                     article.classList.add('auction_item');
                     var img = document.createElement('img');
@@ -65,18 +69,73 @@ function get_bid(path, type){
                     div.appendChild(p);
                     var button = document.createElement('button');
                     button.classList.add('view_auction');
+                    button.id = "view_bids";
                     button.innerHTML = "Voir l'enchère";
                     div.appendChild(button);
-                    article.appendChild(div);
                     
+                    button.onclick = function(){
+                        localStorage.setItem('bid_id', currentKey);
+                        document.location.href = "./viewbids.html";
+                    }
+
+                    if(type == 1){
+                        var button_delete = document.createElement('button');
+                        button_delete.classList.add('view_auction2');
+                        button_delete.id = "button_delete";
+                        button_delete.innerHTML = "Supprimer l'enchère";
+                        div.appendChild(button_delete);
+
+                        button_delete.onclick = function(){
+                            read('bids/')
+                            .then((data) => {
+                                var bids = data;
+                                delete bids[currentKey];
+                                set('bids/', bids)
+
+                                read('users/'+uid+'/created_bids/')
+                                .then((data) => {
+                                    var bids = data;
+                                    delete bids[currentKey];
+                                    set('users/'+uid+'/created_bids/', bids)
+                                }).catch((error) => {
+                                    console.log(error);
+                                });
+
+                                read('users/')
+                                .then((data) => {
+                                    for(var user in data){
+                                        var bidding = []
+                                        for(var key in data[user].bidding){
+                                            bidding.push(key)
+                                        }
+
+                                        if(bidding.includes(currentKey)){
+                                            var bidding = data[user].bidding;
+                                            delete bidding[currentKey];
+                                            set('users/' + user + '/bidding', bidding)
+                                        }
+                                        
+                                    }
+                                }).catch((error) => {
+                                    console.log(error);
+                                });
+
+                            }).catch((error) => {
+                                //Get bids error
+                                console.log(error);
+                            });
+
+                            location.reload();
+                        }
+                    }
+
+                    article.appendChild(div);
+
                     if(Date.now() >= data.timestamp_end_date){
-                        console.log("1")
                         history.appendChild(article);
                     } else if(type == 0){
-                        console.log("2")
                         bids_section.appendChild(article);
                     }else{
-                        console.log("3")
                         my_gallery.appendChild(article);
                     } 
 

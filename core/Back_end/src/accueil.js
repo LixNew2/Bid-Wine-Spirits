@@ -19,6 +19,8 @@ function get_bid(){
         for(var key in data){
             if(data[key] != "null"){
                 if(data[key].timestamp_end_date >= Date.now()){
+                    let bid_id = key;
+
                     var article = document.createElement('article');
                     article.classList.add('auction_item');
                     var img = document.createElement('img');
@@ -41,11 +43,17 @@ function get_bid(){
                     div.appendChild(p);
                     var button = document.createElement('button');
                     button.classList.add('view_auction');
+                    button.id = "view_bids";
                     button.innerHTML = "Voir l'enchère";
                     div.appendChild(button);
                     article.appendChild(div);
         
                     bids_section.appendChild(article);
+                    
+                    button.onclick = function(){
+                        localStorage.setItem('bid_id', bid_id);
+                        document.location.href = "./viewbids.html";
+                    }
                 }
             }
             
