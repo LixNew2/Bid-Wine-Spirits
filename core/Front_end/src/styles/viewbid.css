@@ -121,6 +121,7 @@ body, html {
     margin-top: 20px;
 }
 
+
 h1, p {
     color: #333;
     margin: 5px 0;
@@ -141,4 +142,14 @@ h1, p {
     #bid_img, #current_price, #bid_btn {
         width: 100%;
     }
+}
+
+#map {
+    height: 100%;
+    width: 90%;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
 }

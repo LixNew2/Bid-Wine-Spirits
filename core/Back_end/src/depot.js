@@ -2,26 +2,10 @@
 import {set, update} from "./database.js";
 import {set as setImg} from "./storage.js";
 
-const countries = [
-    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua & Deps", "Argentina", "Armenia", "Australia", "Austria",
-    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
-    "Bolivia", "Bosnia Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina", "Burundi", "Cambodia", "Cameroon",
-    "Canada", "Cape Verde", "Central African Rep", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Congo {Democratic Rep}",
-    "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor",
-    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Fiji", "Finland", "France", "Gabon",
-    "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti",
-    "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland {Republic}", "Israel", "Italy", "Ivory Coast",
-    "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan",
-    "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Madagascar",
-    "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova",
-    "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar, {Burma}", "Namibia", "Nauru", "Nepal", "Netherlands",
-    "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay",
-    "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russian Federation", "Rwanda", "St Kitts & Nevis", "St Lucia",
-    "Saint Vincent & the Grenadines", "Samoa", "San Marino", "Sao Tome & Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles",
-    "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka",
-    "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga",
-    "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
-    "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"];
+
+const reponse = await fetch("../../../Back_end/src/data/all-countries-cities.json")
+const countries_cities = await reponse.json()
+
 
 const title = document.getElementById('titre-annonce');
 const type = document.getElementById('type-select');
@@ -34,7 +18,8 @@ file_path.addEventListener('change', (event) => {
     file_path_value = event.target.files[0]; 
   });
 
-const country = document.getElementById('country');
+const countrys = document.getElementById('country');
+const cities = document.getElementById('city');
 const place = document.getElementById('ville');
 const cp = document.getElementById('cp');
 const end_date = document.getElementById('end-date');
@@ -55,12 +40,25 @@ delivery.addEventListener('click', function(){
     hand_delivered.checked = false;
 });
 
-for(var i = 0; i < countries.length; i++){
+countrys.options[0].disabled = true;
+cities.options[0].disabled = true;
+
+for(let country in countries_cities){
     var option = document.createElement('option');
-    option.value = countries[i];
-    option.innerHTML = countries[i];
-    country.appendChild(option);
+    option.value = country;
+    option.innerHTML = country;
+    countrys.appendChild(option);
 }
+
+countrys.addEventListener('change', function(){
+    cities.innerHTML = "";
+    countries_cities[countrys.value].forEach(function(city){
+        var option = document.createElement('option');
+        option.value = city;
+        option.innerHTML = city;
+        cities.appendChild(option);
+    });
+});
 
 submit.addEventListener('click', create_bid);
 
@@ -69,8 +67,8 @@ function create_bid(){
     const type_value = type.value;
     const condition_value = condition.value;
     const price_value = price.value;
-    const country_value = country.value;
-    const place_value = place.value;
+    const country_value = countrys.value;
+    const place_value = cities.value;
     const cp_value = cp.value;
     const hand_delivered_value = hand_delivered.checked;
     const delivery_value = delivery.checked
@@ -90,9 +88,9 @@ function create_bid(){
             "condition": condition_value,
             "price": parseFloat(price_value),
             "img_URL": downloadURL,
-            "country": country_value,
-            "place": place_value,
-            "cp": parseInt(cp_value),
+            "country": (country_value == "Pays") ? (alert("Vous devez renseigner votre pays !"), null)  : country_value,
+            "place": (place_value == "Pays") ? (alert("Vous devez renseigner votre ville !"), null) : place_value,
+            "cp": (cp_value == "") ? "Aucun code postal renseigné" : cp_value,
             "end_date": end_date.value,
             "hand_delivered": hand_delivered_value,
             "delivery": delivery_value,

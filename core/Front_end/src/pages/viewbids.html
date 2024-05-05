@@ -8,14 +8,14 @@
     <body>
         <div class="container">
             <div class="left-column">
-                <img id="bid_img" src="../images/sample.jpg" alt="Image de l'enchère">
+                <img id="bid_img" src="" alt="Image de l'enchère">
                 <div class="timer-info">
                     <table>
                         <tr>
-                            <td id="days">00</td>
-                            <td id="hours">00</td>
-                            <td id="minutes">00</td>
-                            <td id="seconds">00</td>
+                            <td id="days" style="color: rgb(231, 4, 4); font-weight: bold;">00</td>
+                            <td id="hours" style="color: rgb(231, 4, 4); font-weight: bold;">00</td>
+                            <td id="minutes" style="color: rgb(231, 4, 4); font-weight: bold;">00</td>
+                            <td id="seconds" style="color: rgb(231, 4, 4); font-weight: bold;">00</td>
                         </tr>
                         <tr>
                             <td class="label">Jours</td>    
@@ -24,9 +24,10 @@
                             <td class="label">Sec</td>
                         </tr>
                     </table>
-                    <input id="current_price" type="number">
-                    <button id="bid_btn">Enchérir</button>
                     <p id="status"></p>
+                    <input id="current_price" type="number">
+                    <p id="bidder"></p>
+                    <button id="bid_btn">Enchérir</button>
                 </div>
             </div>
             <div class="right-column">
@@ -62,10 +63,15 @@
                     <p id="phone">Numéro de téléphone</p>
                     <p id="city">Ville</p>
                     <p id="cp">Code Postal</p>
-                    <p id="country">Pays</p>
+                    <p id="country">Pays</p><br>
                 </div>
-            </div>
+                <div id="map"></div>
         </div>
+        <!-- Google map API -->
+       <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+            ({key: "AIzaSyAHfIpnzMcPTo37nJKpVgSmpXwQJON1Q2s", v: "beta"});
+        </script>-->
         <script src="../../../Back_end/src/viewbid.js" type="module"></script>
     </body>
 </html>

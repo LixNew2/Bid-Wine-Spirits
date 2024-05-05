@@ -43,7 +43,11 @@
                 <textarea id="description-produit" placeholder="Décrivez le produit..."></textarea>
 
                 <label for="file">Ajouter des photos:</label>
-                <input type="file" id="file" accept=".jpg, .jpeg, .png">
+                <input type="file" id="file" accept=".jpg, .jpeg, .png"><br><br>
+
+                <label for="main-propre">Remise du bien:</label>
+                <input type="radio" id="main-propre">Main propre</input>
+                <input type="radio" id="livraison">Livraison</input><br><br>
 
                 <label for="contact-input">Vos coordonnées:</label>
                 <input type="text" id="contact-input" placeholder="Numéro de téléphone ou email">
@@ -53,13 +57,18 @@
                     <option value="">Pays</option>
                 </select>
 
-                <label for="ville-select">Ville:</label>
-                <input type="text" id="ville" placeholder="Ville">
+                <label for="city">Ville:</label>
+                <select name="city" id="city">
+                    <option value="">Ville</option>
+                </select>
 
                 <label for="cp">Code postal:</label>
                 <input type="text" id="cp" placeholder="Code postal">
+
+                <label for="end-date">Date de fin de l'enchère:</label>
+                <input type="date" id="end-date">
             </div>
-            <button type="submit" id="btn_valider">Confirmer le dépôt</button>
+            <button id="submit">Confirmer le dépôt</button>
         </div>
         <div class="footer">
             <a href="./Home.html"><button>Retour à l'accueil</button></a>

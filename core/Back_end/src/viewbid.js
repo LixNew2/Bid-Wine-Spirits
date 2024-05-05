@@ -54,29 +54,33 @@ function set_data_page(){
         if(data.bidder == "null"){
             bidder.innerHTML = "Aucun enchérisseur";
         }else{  
-            bidder.innerHTML = data.bidder;
+            bidder.innerHTML = "<b>Meilleur enchérisseur :</b> " + data.bidder;
         }
 
         if(data.status == "open"){
-            status.innerHTML = "Ouverte";
+            status.innerHTML = "<b>Statut :</b> Ouverte";
         }else{
-            status.innerHTML = "Fermée";
+            status.innerHTML = "<b>Statut :</b> Fermée";
         }
 
-        city.innerHTML = data.place;
-        cp.innerHTML = data.cp;
-        country.innerHTML = data.country;
-        phone.innerHTML = data.contact;
+        city.innerHTML = "<b>Ville :</b> " + data.place;
+        cp.innerHTML = "<b>Code postal :</b> " + data.cp;
+        country.innerHTML = "<b>Pays :</b> " + data.country;
+        phone.innerHTML = "<b>Numéro de téléphone :</b> " + data.contact;
+
+        /*initMap(data.place);*/
 
         bid_btn.addEventListener('click', () => {
             if(current_price.value > price){
                 set('bids/'+bid_id + "/bidder", username);
-                bidder.innerHTML = username;
+                bidder.innerHTML = "<b>Meilleur enchérisseur :</b> " + username;
                 set('bids/'+bid_id + "/bid_price", current_price.value);
                 var obj = {}
                 obj[bid_id] = current_price.value;
                 update('users/'+uid+"/bidding", obj);
+                alert("Vous êtes acutellement le meilleur enchérisseur ! ")
             }else{
+                alert("Le nouveau prix doit être strictement supérieur au prix actuel !")
                 current_price.value = price
             }
         });
@@ -100,8 +104,49 @@ function timer(startDate){
     hours.innerHTML = hoursValue.toString().padStart(2, "0");
     minutes.innerHTML = minutesValue.toString().padStart(2, "0");
     seconds.innerHTML = secondesValue.toString().padStart(2, "0");
-
+    
 }
+
+// Initialize and add the map
+/*let map;
+
+async function initMap(city) {
+    //Get latitude and longitude of the city
+    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${"AIzaSyAHfIpnzMcPTo37nJKpVgSmpXwQJON1Q2s"}`;
+    let latitude;
+    let longitude;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        latitude = data.results[0].geometry.location.lat;
+        longitude = data.results[0].geometry.location.lng; 
+
+    } catch(error) {
+        console.log(error);
+    }
+
+    const position = { lat: latitude, lng: longitude};
+
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+    // Create the map
+    map = new Map(document.getElementById("map"), {
+        zoom: 10,
+        center: position,
+        mapId: "MAP",
+    });
+
+    // Create marker for the city
+    new AdvancedMarkerView({
+        map: map,
+        position: position,
+        title: city,
+    });
+    
+}*/
 
 set_data_page();
 
