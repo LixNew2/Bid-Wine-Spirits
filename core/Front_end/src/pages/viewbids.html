@@ -1,43 +1,71 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title></title>
+        <title>Enchères</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="../styles/viewbid.css">
     </head>
     <body>
-        <img id="bid_img">
-        <h1 id="title"></h1>
-        <p id="description"></p>
-        <p id="type"></p>
-        <p id="brand"></p>
-        <p id="year"></p>
-        <p id="condition"></p>
-        <p id="remise"></p>
-        <input id="current_price" type="number">
-        <p id="bidder"></p>
-        <button id="bid_btn">Enchérir</button>
-        <p id="status"></p>
-        <table>
-            <tr>
-                <td id="days">00</td>
-                <td id="hours">00</td>
-                <td id="minutes">00</td>
-                <td id="seconds">00</td>
-            </tr>
-            <tr>
-                <td class="label">Jours</td>
-                <td class="label">Heures</td>
-                <td class="label">Min</td>
-                <td class="label">Sec</td>
-            </tr>
-        </table>
-        <h1>Localisation</h1>
-        <p id="city"></p>
-        <p id="cp"></p>
-        <p id="country"></p>
-        <h1>Contact</h1>
-        <p id="phone"></p>
+        <div class="container">
+            <div class="left-column">
+                <img id="bid_img" src="../images/sample.jpg" alt="Image de l'enchère">
+                <div class="timer-info">
+                    <table>
+                        <tr>
+                            <td id="days">00</td>
+                            <td id="hours">00</td>
+                            <td id="minutes">00</td>
+                            <td id="seconds">00</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Jours</td>    
+                            <td class="label">Heures</td>
+                            <td class="label">Min</td>
+                            <td class="label">Sec</td>
+                        </tr>
+                    </table>
+                    <input id="current_price" type="number">
+                    <button id="bid_btn">Enchérir</button>
+                    <p id="status"></p>
+                </div>
+            </div>
+            <div class="right-column">
+                <h1 id="title">Titre de l'enchère</h1>
+                <div class="card">
+                    <h2>Description</h2>
+                    <p id="description"></p>
+                </div>
+                <div class="card">
+                    <h2>Type de produit</h2>
+                    <p id="type"></p>
+                </div>
+                <div class="card">
+                    <h2>Enseigne</h2>
+                    <p id="brand"></p>
+                </div>
+                <div class="horizontal-cards">
+                    <div class="card">
+                        <h2>Année</h2>
+                        <p id="year"></p>
+                    </div>
+                    <div class="card">
+                        <h2>État</h2>
+                        <p id="condition"></p>
+                    </div>
+                    <div class="card">
+                        <h2>Remise</h2>
+                        <p id="remise"></p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h2>Contact</h2>
+                    <p id="phone">Numéro de téléphone</p>
+                    <p id="city">Ville</p>
+                    <p id="cp">Code Postal</p>
+                    <p id="country">Pays</p>
+                </div>
+            </div>
+        </div>
         <script src="../../../Back_end/src/viewbid.js" type="module"></script>
     </body>
 </html>
