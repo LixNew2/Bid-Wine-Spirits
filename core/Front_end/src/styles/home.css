@@ -1,4 +1,4 @@
-/* Styles de base */
+
 body, button {
   margin: 0;
   padding: 0;
@@ -27,7 +27,7 @@ nav button:hover {
   background-color: #555;
 }
 
-/* Style du main et des éléments d'enchère */
+
 #auction_gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -92,7 +92,7 @@ h1{
   text-decoration: underline;
 }
 
-/* Footer style */
+
 footer {
   position: fixed;
   bottom: 0;

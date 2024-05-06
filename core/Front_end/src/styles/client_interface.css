@@ -1,4 +1,4 @@
-/* Styles de base */
+
 body,button {
   margin: 0;
   padding: 0;
@@ -28,17 +28,17 @@ nav button:hover {
 }
 
 p {
-  text-align: center; /* Centrer le texte */
+  text-align: center;
 }
 
 p a {
-  color: #000000; /* Couleur du texte en noir */
-  margin: 0 10px; /* Ajouter un espacement horizontal entre chaque lien */
+  color: #000000; 
+  margin: 0 10px;
   font-family: 'Caladea';
-  text-decoration: none; /* Pas de soulignement */
+  text-decoration: none; 
 }
 
-/* Style du main et des éléments d'enchère */
+
 #participate_gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -118,7 +118,7 @@ h1{
 
 }
 
-/* Footer style */
+
 footer {
   position: fixed;
   bottom: 0;
