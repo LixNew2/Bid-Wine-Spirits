@@ -113,12 +113,13 @@ body, html {
 }
 
 .contact-info {
-    width: 90%;
+    width: 95%;
     background: #f8f9fa;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-top: 20px;
+    margin-left: 5px;
 }
 
 
@@ -146,7 +147,8 @@ h1, p {
 
 #map {
     height: 100%;
-    width: 90%;
+    width: 95%;
+    margin-left: 5px;
     background: #f8f9fa;
     padding: 15px;
     border-radius: 8px;

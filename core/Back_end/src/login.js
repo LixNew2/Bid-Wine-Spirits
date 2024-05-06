@@ -58,6 +58,7 @@ function login(){
     })
     .catch((error) => {
         // Login error
+        alert('Mot de passe ou email incorrect !')
         console.log(error);
     }); 
 }
