@@ -30,7 +30,7 @@ function create_account(){
     .then((userCredential) => {
         // Signed up 
         console.log("Compte créé !");
-
+        alert("Compte créé !");
         //Create user data
         var localId = userCredential.user.reloadUserInfo.localId;
         var data = {
