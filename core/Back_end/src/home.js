@@ -38,7 +38,7 @@ function get_bid(value, type){
             if(data[key] != "null"){
                 if(data[key].timestamp_end_date >= Date.now()){
                     if((data[key].title.toLowerCase()).startsWith(value) || value == null){
-                        if(data[key].type.toLowerCase() == type || type == "Tout les produits"){
+                        if(data[key].type.toLowerCase() == type || type == "tout"){
 
                             let bid_id = key;
     
@@ -89,4 +89,4 @@ function get_bid(value, type){
     });
 }
 
-get_bid(null, "Tout les produits");
+get_bid(null, "tout");

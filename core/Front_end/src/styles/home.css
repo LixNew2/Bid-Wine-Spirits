@@ -115,3 +115,13 @@ footer {
   padding: 12px;
 
 }
+
+#type{
+  margin-top: 6px;
+  margin-left: 10px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  float: left;
+}

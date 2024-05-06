@@ -23,12 +23,11 @@ var history = document.getElementById('history');
 function get_bid(path, type){
     read(path)
     .then((data) => {
-        let price = 0;
         
         for(var key in data){
             if(key != "null"){
                 let currentKey = key;
-                
+                let price = 0;
                 if(type == 0){
                     price = data[key];
                 }
@@ -52,19 +51,19 @@ function get_bid(path, type){
                         var create_date = new Date(parseInt(data.timestamp_creation))
                         var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
                         var days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-                        p.innerHTML = "Crée le : " + (days[create_date.getDay()] + " " + create_date.getDate() + " " + months[create_date.getMonth()] + " " + create_date.getFullYear());
+                        p.innerHTML = "<b>Crée le :</b> " + (days[create_date.getDay()] + " " + create_date.getDate() + " " + months[create_date.getMonth()] + " " + create_date.getFullYear());
                         div.appendChild(p);
                     }
                     var p = document.createElement('p');
                     if(type == 0){
-                        p.innerHTML = "Enchérit à : " + price + "€";
+                        p.innerHTML = "<b>Enchérit à :</b> " + price + "€";
                     }else{
-                        p.innerHTML = "Prix initial : " + data.price + "€";
+                        p.innerHTML = "<b>Prix initial :</b> " + data.price + "€";
                     }
                     div.appendChild(p);
                     var p = document.createElement('p');
                     if(type != 0){
-                        p.innerHTML = "Prix actuel : " + data.bid_price + "€";
+                        p.innerHTML = "<b>Prix actuel :</b> " + data.bid_price + "€";
                     }
                     div.appendChild(p);
                     var button = document.createElement('button');

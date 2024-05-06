@@ -27,8 +27,8 @@ nav button:hover {
   background-color: #555;
 }
 
-p {
-  text-align: center;
+#button{
+    text-align: center;
 }
 
 p a {
@@ -118,7 +118,6 @@ h1{
 
 }
 
-
 footer {
   position: fixed;
   bottom: 0;
@@ -131,4 +130,18 @@ footer {
   float: right;
   padding: 12px;
 
+}
+
+.view_auction2 {
+  background-color: #af392e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
