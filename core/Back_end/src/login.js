@@ -50,7 +50,7 @@ function login(){
                 localStorage.setItem('password', password);
             }
             //Redirect to acceuil page
-            document.location.href = "./accueil.html";
+            document.location.href = "./home.html";
         }) .catch((error) => {
             //Get username error
             console.log(error);

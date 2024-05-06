@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-<link rel="stylesheet" href="../styles/home.css">
-
 <head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site d'enchères de vins et spiritueux</title>
+  <link rel="stylesheet" href="../styles/home.css">
 </head>
-
 <body>
-    <header>
-        <div class="barnav">
-            <a href="./login.html">Login</a>
-            <a href="./creationcompte.html">Création</a>
-        </div>
-        <img src="../img/logo1.png" class="logo" alt="logo">
-    </header>
 
-    <div class="center-text">
-        <p class="titre">Bid Wine Spirit</p>
-        <p class="slogan">Excellence in every Bottle</p>
-    </div>
+<header>
+  <nav>
+    <input type="text" id="search_input" placeholder="Rechercher...">
+    <a href="./home.html"><button >Accueil</button></a>
+    <a href="./deposit.html"><button>Déposer une annonce</button></a>
+    <a href="./client_interface.html"><button>Interface Client</button></a>
+    <a href="./presentation.html"><button onclick="localStorage.removeItem('password'); localStorage.removeItem('email'); localStorage.removeItem('uid'); localStorage.removeItem('bid_id'); localStorage.removeItem('usuername'); localStorage.setItem('stay_logged', false)">Déconnexion</button></a>
+    <a id="username">Pseudo</a>
+  </nav> 
+</header>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Mentions légales</a>
-            <a href="#">Politique en matière de cookies</a>
-            <a href="#">Conditions d'utilisation</a>
-            <a href="#">Politique de confidentialité</a>
-        </div>
-        <script src="../../../Back_end/src/home.js" type="module"></script>
-    </footer>
+<main>
+  <h1>Enchères du moment :</h1>
+  <section id="auction_gallery">
+
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 Enchères de Vins et Spiritueux</p>
+</footer>
+<script src="../../../Back_end/src/home.js" type="module"></script>
 </body>
-
 </html>
+

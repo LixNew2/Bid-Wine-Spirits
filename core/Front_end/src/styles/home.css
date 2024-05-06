@@ -1,112 +1,117 @@
-html{
-    position: relative;
-    min-height:100%;
-    font-family: 'Caladea';
+/* Styles de base */
+body, button {
+  margin: 0;
+  padding: 0;
+  font-family: 'Caladea';
+  background-color: #eaeaeafa;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; /* Empêche le défilement au niveau du body */
+header, footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: url("../img/1.jpeg") no-repeat center center fixed;
-    background-size: cover;
-    filter: brightness(50%);
-    z-index: -1;
+nav button {
+  background-color: #444;
+  border: 2.2px solid #3c1a1a;
+  padding: 10px 20px;
+  margin-right: 5px;
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
 }
 
-header {
-    background-color: transparent;
-    height: 6vh; /* Fixe la hauteur de l'en-tête en unités de vh pour une précision accrue */
-    align-items: center;
-    text-align: center;
-    display: flex;
+nav button:hover {
+  background-color: #555;
 }
 
-.center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #ffffff;
+/* Style du main et des éléments d'enchère */
+#auction_gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-
-
-.titre{
-    font-family: 'Yellowtail';
-    font-size: 6rem;
-    margin-bottom: 8px;
+.auction_item {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  transition: filter 0.3s ease;
 }
 
-.slogan{
-    font-family: 'Yellowtail';
-    position: relative;
-    font-size: 2.2rem;
-    margin-left: 450px;
+.auction_item img {
+  height: 200px;
+  margin: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.logo{
-    object-fit: contain;
-    height: 140%;
-    margin-top: 40px;
-    margin-right: 15px;
-}
-.barnav{
-    display: flex;
-    justify-content:left;
-    width: 100%;
-    padding-left: 28px;
-    padding-top: 30px;
-    text-decoration: none;
+.auction_item .auction_info {
+  background-color: #dddddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: none;
+  position: absolute;
+  width: 95%;
+  top: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
-.barnav > *:not(:last-child) {
-    margin-right: 20px; /* ou la valeur d'espacement que vous préférez */
+.auction_item:hover .auction_info {
+  display: block;
+  z-index: 3;
 }
 
-.barnav a{
-    color:#ffffff;
-    text-decoration: none;
-    font-size: 1.4em;
+.view_auction {
+  background-color: #7B2D26;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
+.auction_item h3, .auction_item p {
+  margin: 5px 0;
+}
+
+h1{
+  font-size: 1.7em;
+  color:rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+/* Footer style */
 footer {
-    background-color: #3c1a1a; /* Noir pour le fond du footer */
-    color: #ffffff; /* Blanc pour le texte */
-    position:absolute;
-    bottom:0;
-    width:100%;
-    display: flex;
-    flex-direction: column; /* Empile les éléments verticalement */
-    align-items: center; /* Centre les éléments horizontalement */
-    padding: 0.5rem; /* Ajustez selon votre design */
-    font-size: 0.8rem; /* Ajustez la taille du texte */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8em;
+  padding: 2px;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center; /* Centre les liens horizontalement */
-    flex-wrap: wrap; /* Les liens vont à la ligne si nécessaire */
+#search_input{
+  margin-top: 6px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  float: left;
 }
 
-.footer-links a {
-    color: #ffffff; /* Blanc pour les liens */
-    margin: 0 10px; /* Espace horizontalement entre les liens */
-    text-decoration: none; /* Aucun soulignement sur les liens */
-    padding: 5px 0; /* Ajustez pour le padding vertical si nécessaire */
-}
+#username{
+  float: right;
+  padding: 12px;
 
-.footer-links a:hover {
-    text-decoration: underline; /* Souligne les liens au survol */
 }

@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Site d'enchères de vins et spiritueux</title>
-  <link rel="stylesheet" href="../styles/interfaceclient.css">
+  <link rel="stylesheet" href="../styles/client_interface.css">
 </head>
 <body>
 
 <header>
   <nav>
-    <a href="./accueil.html"><button >Accueil</button></a>
-    <a href="./depos.html"><button>Déposer une annonce</button></a>
-    <a href="./interfaceclient.html"><button>Interface Client</button></a>
-    <a href="./Home.html"><button onclick="localStorage.removeItem('password'); localStorage.removeItem('email'); localStorage.removeItem('uid'); localStorage.removeItem('bid_id'); localStorage.removeItem('firebase:host:bid-wine-spirits-default-rtdb.europe-west1.firebasedatabase.app'); localStorage.removeItem('username'); localStorage.setItem('stay_logged', false)">Déconnexion</button></a>
+    <a href="./home.html"><button >Accueil</button></a>
+    <a href="./deposit.html"><button>Déposer une annonce</button></a>
+    <a href="./client_interface.html"><button>Interface Client</button></a>
+    <a href="./presentation.html"><button onclick="localStorage.removeItem('password'); localStorage.removeItem('email'); localStorage.removeItem('uid'); localStorage.removeItem('bid_id'); localStorage.removeItem('firebase:host:bid-wine-spirits-default-rtdb.europe-west1.firebasedatabase.app'); localStorage.removeItem('username'); localStorage.setItem('stay_logged', false)">Déconnexion</button></a>
     <a id="username">Pseudo</a>
   </nav>
 </header>
@@ -42,7 +42,7 @@
 <footer>
   <p>© 2024 Enchères de Vins et Spiritueux</p>
 </footer>
-<script src="../../../Back_end/src/interfaceclient.js" type="module"></script>
+<script src="../../../Back_end/src/client_interface.js" type="module"></script>
 </body>
 </html>
 
