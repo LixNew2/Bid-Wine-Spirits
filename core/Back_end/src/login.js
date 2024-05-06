@@ -6,6 +6,9 @@ import {read} from "./database.js";
 const login_btn = document.getElementById('login_btn');
 login_btn.addEventListener('click', login);
 
+//Stay connected button
+const stay_logged = document.getElementById('stay_logged');
+
 //Forgot password button
 const forgot_password_btn = document.getElementById('forgot_password_btn');
 forgot_password_btn.addEventListener('click', forgot_password);
@@ -41,7 +44,11 @@ function login(){
             //Get username success
             //Set username in local storage
             localStorage.setItem('username', data.username);
-
+            if(stay_logged.checked){
+                localStorage.setItem('stay_logged', true);
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+            }
             //Redirect to acceuil page
             document.location.href = "./accueil.html";
         }) .catch((error) => {

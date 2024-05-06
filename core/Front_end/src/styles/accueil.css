@@ -100,3 +100,18 @@ footer {
   font-size: 0.8em;
   padding: 2px;
 }
+
+#search_input{
+  margin-top: 6px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  float: left;
+}
+
+#username{
+  float: right;
+  padding: 12px;
+
+}

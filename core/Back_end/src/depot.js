@@ -1,11 +1,10 @@
 // Imports
-import {set, update} from "./database.js";
+import {set, update, read} from "./database.js";
 import {set as setImg} from "./storage.js";
 
 
 const reponse = await fetch("../../../Back_end/src/data/all-countries-cities.json")
 const countries_cities = await reponse.json()
-
 
 const title = document.getElementById('titre-annonce');
 const type = document.getElementById('type-select');
@@ -20,7 +19,6 @@ file_path.addEventListener('change', (event) => {
 
 const countrys = document.getElementById('country');
 const cities = document.getElementById('city');
-const place = document.getElementById('ville');
 const cp = document.getElementById('cp');
 const end_date = document.getElementById('end-date');
 const hand_delivered = document.getElementById('main-propre');
@@ -58,6 +56,11 @@ countrys.addEventListener('change', function(){
         option.innerHTML = city;
         cities.appendChild(option);
     });
+});
+
+read("/users/"+localStorage.getItem('uid'))
+.then((data) => {
+    contact.value = data.tel;
 });
 
 submit.addEventListener('click', create_bid);

@@ -10,11 +10,11 @@
 
 <header>
   <nav>
-    <button>Recherche</button>
+    <input type="text" id="search_input" placeholder="Rechercher...">
     <a href="./accueil.html"><button >Accueil</button></a>
     <a href="./depos.html"><button>Déposer une annonce</button></a>
     <a href="./interfaceclient.html"><button>Interface Client</button></a>
-    <a href="./Home.html"><button>Déconnexion</button></a>
+    <a href="./Home.html"><button onclick="localStorage.removeItem('password'); localStorage.removeItem('email'); localStorage.removeItem('uid'); localStorage.removeItem('bid_id'); localStorage.removeItem('usuername'); localStorage.setItem('stay_logged', false)">Déconnexion</button></a>
     <a id="username">Pseudo</a>
   </nav> 
 </header>
