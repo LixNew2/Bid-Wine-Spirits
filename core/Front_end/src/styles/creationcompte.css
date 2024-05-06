@@ -5,6 +5,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Caladea';
 }
 
 body::before {
@@ -16,15 +17,16 @@ body::before {
     left: 0;
     background: url("../img/PageHome.webp") no-repeat center center fixed;
     background-size: cover;
-    opacity: 0.7; /* Opacité de l'image de fond */
+    /*filter: brightness(50%);*/
+    opacity: 0.7;  /*Opacité de l'image de fond */
     z-index: -1;
 }
 
 .header {
+    font-family: 'Lucida Calligraphy';
     margin: 20px;
     text-align: center;
-    font-size: 30px;
-    font-style: italic;
+    font-size: 40px;
 }
 
 .container {
