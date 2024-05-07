@@ -7,7 +7,7 @@ const username = document.getElementById('username');
 const username_local_storage = localStorage.getItem('username')
 
 //Set username in document
-username.innerHTML = "Connected as :" + "<b>" + username_local_storage + "</b>";
+username.innerHTML = "Connected as : " + "<b>" + username_local_storage + "</b>";
 
 //Get account uid
 const uid = localStorage.getItem('uid');

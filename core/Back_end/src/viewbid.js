@@ -40,8 +40,15 @@ function set_data_page(){
         type.innerHTML = data.type;
         brand.innerHTML = data.brand;
         year.innerHTML = data.year;
-        condition.innerHTML = data.condition;
 
+        if(data.condition == "Abîmé"){
+            condition.innerHTML = "Damaged";
+        } else if(data.condition == "Très abîmé"){
+            condition.innerHTML = "Very Damaged";
+        } else{
+            condition.innerHTML = "New";
+        }
+        
         if(data.delivery){
             remise.innerHTML = "Delivery"
         }else{
