@@ -7,7 +7,7 @@ const username = document.getElementById('username');
 const username_local_storage = localStorage.getItem('username')
 
 //Set username in document
-username.innerHTML = "Connecté en tant que : " + "<b>" + username_local_storage + "</b>";
+username.innerHTML = "Connected as :" + "<b>" + username_local_storage + "</b>";
 
 //Get account uid
 const uid = localStorage.getItem('uid');
@@ -49,27 +49,27 @@ function get_bid(path, type){
                     if(type != 0){
                         var p = document.createElement('p');
                         var create_date = new Date(parseInt(data.timestamp_creation))
-                        var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-                        var days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-                        p.innerHTML = "<b>Crée le :</b> " + (days[create_date.getDay()] + " " + create_date.getDate() + " " + months[create_date.getMonth()] + " " + create_date.getFullYear());
+                        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                        p.innerHTML = "<b>Created on :</b> " + (days[create_date.getDay()] + " " + create_date.getDate() + " " + months[create_date.getMonth()] + " " + create_date.getFullYear());
                         div.appendChild(p);
                     }
                     var p = document.createElement('p');
                     if(type == 0){
-                        p.innerHTML = "<b>Enchérit à :</b> " + price + "€";
+                        p.innerHTML = "<b>Bids at :</b> " + price + "€";
                     }else{
-                        p.innerHTML = "<b>Prix initial :</b> " + data.price + "€";
+                        p.innerHTML = "<b>Initial price :</b> " + data.price + "€";
                     }
                     div.appendChild(p);
                     var p = document.createElement('p');
                     if(type != 0){
-                        p.innerHTML = "<b>Prix actuel :</b> " + data.bid_price + "€";
+                        p.innerHTML = "<b>Current price :</b> " + data.bid_price + "€";
                     }
                     div.appendChild(p);
                     var button = document.createElement('button');
                     button.classList.add('view_auction');
                     button.id = "view_bids";
-                    button.innerHTML = "Voir l'enchère";
+                    button.innerHTML = "See the bid";
                     div.appendChild(button);
                     
                     button.onclick = function(){
@@ -81,7 +81,7 @@ function get_bid(path, type){
                         var button_delete = document.createElement('button');
                         button_delete.classList.add('view_auction2');
                         button_delete.id = "button_delete";
-                        button_delete.innerHTML = "Supprimer l'enchère";
+                        button_delete.innerHTML = "Delete the bid";
                         div.appendChild(button_delete);
 
                         button_delete.onclick = function(){

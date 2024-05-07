@@ -10,7 +10,7 @@ const username = document.getElementById('username');
 const username_local_storage = localStorage.getItem('username')
 
 //Set username in document
-username.innerHTML = "Connecté en tant que : " + "<b>" + username_local_storage + "</b>";
+username.innerHTML = "Connected as : " + "<b>" + username_local_storage + "</b>";
 
 //Search
 const search_input = document.getElementById("search_input");
@@ -38,7 +38,7 @@ function get_bid(value, type){
             if(data[key] != "null"){
                 if(data[key].timestamp_end_date >= Date.now()){
                     if((data[key].title.toLowerCase()).startsWith(value) || value == null){
-                        if(data[key].type.toLowerCase() == type || type == "tout"){
+                        if(data[key].type.toLowerCase() == type || type == "all"){
 
                             let bid_id = key;
     
@@ -55,17 +55,17 @@ function get_bid(value, type){
                             div.appendChild(h3);
                             var p = document.createElement('p');
                             var end_date = new Date(parseInt(data[key].timestamp_end_date));
-                            var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-                            var days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
-                            p.innerHTML = "Fin de l'enchère le : " + (days[end_date.getDay()] + " " + end_date.getDate() + " " + months[end_date.getMonth()] + " " + end_date.getFullYear());
+                            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                            p.innerHTML = "Bid ends on : " + (days[end_date.getDay()] + " " + end_date.getDate() + " " + months[end_date.getMonth()] + " " + end_date.getFullYear());
                             div.appendChild(p);
                             var p = document.createElement('p');
-                            p.innerHTML = "Prix actuel : " + data[key].bid_price + "€";
+                            p.innerHTML = "Current price : " + data[key].bid_price + "€";
                             div.appendChild(p);
                             var button = document.createElement('button');
                             button.classList.add('view_auction');
                             button.id = "view_bids";
-                            button.innerHTML = "Voir l'enchère";
+                            button.innerHTML = "See the bid";
                             div.appendChild(button);
                             article.appendChild(div);
                 
@@ -89,4 +89,4 @@ function get_bid(value, type){
     });
 }
 
-get_bid(null, "tout");
+get_bid(null, "all");

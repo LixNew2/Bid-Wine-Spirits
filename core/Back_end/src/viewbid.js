@@ -43,44 +43,44 @@ function set_data_page(){
         condition.innerHTML = data.condition;
 
         if(data.delivery){
-            remise.innerHTML = "Livraison"
+            remise.innerHTML = "Delivery"
         }else{
-            remise.innerHTML = "Remise en main propre"
+            remise.innerHTML = "Hand-delivered"
         }
 
         current_price.value = data.bid_price;
         current_price.min = data.bid_price;
         price = data.bid_price;
         if(data.bidder == "null"){
-            bidder.innerHTML = "Aucun enchérisseur";
+            bidder.innerHTML = "No bidders";
         }else{  
-            bidder.innerHTML = "<b>Meilleur enchérisseur :</b> " + data.bidder;
+            bidder.innerHTML = "<b>Highest bidder :</b> " + data.bidder;
         }
 
         if(data.status == "open"){
-            status.innerHTML = "<b>Statut :</b> Ouverte";
+            status.innerHTML = "<b>Status :</b> Open";
         }else{
-            status.innerHTML = "<b>Statut :</b> Fermée";
+            status.innerHTML = "<b>Status :</b> Closed";
         }
 
-        city.innerHTML = "<b>Ville :</b> " + data.place;
-        cp.innerHTML = "<b>Code postal :</b> " + data.cp;
-        country.innerHTML = "<b>Pays :</b> " + data.country;
-        phone.innerHTML = "<b>Numéro de téléphone :</b> " + data.contact;
+        city.innerHTML = "<b>City :</b> " + data.place;
+        cp.innerHTML = "<b>Zip code :</b> " + data.cp;
+        country.innerHTML = "<b>Country :</b> " + data.country;
+        phone.innerHTML = "<b>Phone number :</b> " + data.contact;
 
         /*initMap(data.place);*/
 
         bid_btn.addEventListener('click', () => {
             if(current_price.value > price){
                 set('bids/'+bid_id + "/bidder", username);
-                bidder.innerHTML = "<b>Meilleur enchérisseur :</b> " + username;
+                bidder.innerHTML = "<b>Highest bidder :</b> " + username;
                 set('bids/'+bid_id + "/bid_price", current_price.value);
                 var obj = {}
                 obj[bid_id] = current_price.value;
                 update('users/'+uid+"/bidding", obj);
-                alert("Vous êtes acutellement le meilleur enchérisseur ! ")
+                alert("You're definitely the highest bidder !")
             }else{
-                alert("Le nouveau prix doit être strictement supérieur au prix actuel !")
+                alert("The new price must be strictly higher than the current price !")
                 current_price.value = price
             }
         });

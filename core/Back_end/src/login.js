@@ -19,7 +19,7 @@ function forgot_password(){
     .then(() => {
         // Email sent
         console.log('Email sent');
-        alert('Email sent');
+        alert('The email has been sent !');
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -58,7 +58,7 @@ function login(){
     })
     .catch((error) => {
         // Login error
-        alert('Mot de passe ou email incorrect !')
+        alert('Incorrect password or email !')
         console.log(error);
     }); 
 }

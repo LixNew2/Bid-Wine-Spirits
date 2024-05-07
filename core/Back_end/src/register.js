@@ -21,7 +21,7 @@ function create_account(){
     
     //Check if passwords match
     if(password !== confirmerPassword) {
-        alert("Les mots de passe ne correspondent pas.");
+        alert("The passwords do not match !");
         return;
     }
 
@@ -29,8 +29,8 @@ function create_account(){
     create_user_with_email_and_password(auth, email, password)
     .then((userCredential) => {
         // Signed up 
-        console.log("Compte créé !");
-        alert("Compte créé !");
+        console.log("Account created ");
+        alert("Account created  !");
         //Create user data
         var localId = userCredential.user.reloadUserInfo.localId;
         var data = {
