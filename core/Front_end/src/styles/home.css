@@ -48,6 +48,7 @@ nav button:hover {
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .auction_item .auction_info {
