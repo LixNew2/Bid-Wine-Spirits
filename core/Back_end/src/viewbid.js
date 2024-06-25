@@ -114,46 +114,5 @@ function timer(startDate){
     
 }
 
-// Initialize and add the map
-/*let map;
-
-async function initMap(city) {
-    //Get latitude and longitude of the city
-    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${"AIzaSyAHfIpnzMcPTo37nJKpVgSmpXwQJON1Q2s"}`;
-    let latitude;
-    let longitude;
-
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        latitude = data.results[0].geometry.location.lat;
-        longitude = data.results[0].geometry.location.lng; 
-
-    } catch(error) {
-        console.log(error);
-    }
-
-    const position = { lat: latitude, lng: longitude};
-
-    const { Map } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
-
-    // Create the map
-    map = new Map(document.getElementById("map"), {
-        zoom: 10,
-        center: position,
-        mapId: "MAP",
-    });
-
-    // Create marker for the city
-    new AdvancedMarkerView({
-        map: map,
-        position: position,
-        title: city,
-    });
-    
-}*/
-
 set_data_page();
 
